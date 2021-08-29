@@ -1,0 +1,33 @@
+.checkout {
+  --width: calc(#{$width-popular-content});
+  width: var(--width);
+  &__product {
+    width: calc(var(--width) / 2);
+  }
+}
+.checkoutItem {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  padding: 10px 20px;
+  background: #ffefd7;
+  &__shape {
+    width: calc(var(--width) / 10);
+    position: relative;
+    display: flex;
+    &-photo {
+      width: 100%;
+    }
+    &-caption {
+      position: absolute;
+      right: 0;
+    }
+  }
+  &__price {
+  }
+  &__quantity {
+    &-icon {
+    }
+  }
+}

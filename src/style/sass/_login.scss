@@ -1,0 +1,93 @@
+.login {
+  --width-form: calc((#{$width-popular-content} / 3));
+  background-image: url("../img/login_bg.png");
+  position: relative;
+  height: 600px;
+
+  &__form {
+    @include absCenter;
+    background-color: $color-white;
+    padding: 50px 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba($color-gray-light-1, 0.9);
+    width: var(--width-form);
+    &-title {
+      margin-bottom: 40px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    input {
+      position: relative;
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: $color-gray-light-2;
+      box-shadow: 0 3px 4px rgba($color-gray-light-1, 0.8);
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__email {
+      position: relative;
+      display: flex;
+      margin-bottom: 40px;
+
+      .forEmail {
+        position: absolute;
+        top: -20px;
+        color: $color-gray-light-1;
+      }
+    }
+    &__pass {
+      position: relative;
+      display: flex;
+      margin-bottom: 40px;
+      .forPass {
+        position: absolute;
+        top: -20px;
+        color: $color-gray-light-1;
+      }
+    }
+    &__passForget {
+      font-size: 14px;
+      color: rgb(56, 142, 212);
+      font-weight: 500;
+      margin: 10px 0;
+    }
+    &-br {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      &-1 {
+        height: 2px;
+        width: calc(var(--width-form) / 3);
+        background-color: $color-gray-light-1;
+      }
+      &-2 {
+        font-size: 16px;
+        color: $color-gray-light-1;
+      }
+    }
+    &-oauth {
+      display: flex;
+      justify-content: space-between;
+
+      margin: 20px 0;
+    }
+    &-register {
+      display: flex;
+      justify-content: center;
+      img {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

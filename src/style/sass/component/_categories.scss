@@ -1,0 +1,55 @@
+.category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: $width-searchFood-item;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-black-title;
+    text-align: center;
+    margin-top: 30px;
+  }
+  &__shape {
+    width: $width-searchFood-item; // 8 * 16
+    height: $width-searchFood-item;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    cursor: pointer;
+    position: relative;
+    // float: left;
+    &__img {
+      height: 100%;
+      transition: all 0.3s;
+      backface-visibility: hidden;
+      transform: scale(1.1);
+    }
+    &:hover &__img {
+      transform: scale(0.99);
+      filter: blur(2px) brightness(80%);
+    }
+    &:hover .category__caption {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+      top: 50%;
+    }
+  }
+  &__caption {
+    // margin-top: 20px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    font-size: 16px;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+    text-align: center;
+    opacity: 0;
+  }
+}
