@@ -19,3 +19,5 @@ $width-popular-content: 1200px;
 $width-popular-item: calc((1200px / 5) - 10px);
 $width-restaurant-item: calc((1200px / 4) - 10px);
 $width-searchFood-item: calc((#{$width-popular-content} / 6) - 20px);
+
+$box-shadow-1: 2px 4px 10px rgba(#000000, 0.4);

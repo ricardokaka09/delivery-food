@@ -7,9 +7,14 @@ import order4 from "../../style/img/order-4.png";
 import order5 from "../../style/img/order-5.png";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 
-const PopularItem: React.FC<{ type: string }> = ({ type }) => {
+const PopularItem: React.FC<{ type: string; name?: string }> = ({
+  type,
+  name,
+}) => {
   return (
-    <div className="popular__item">
+    <div
+      className={name ? `popular__item popular__item-${name}` : "popular__item"}
+    >
       <img
         src={
           type === "order-1"

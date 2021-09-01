@@ -14,6 +14,7 @@ import Footer from "./view/Footer/Footer";
 import Login from "./view/login/Login";
 import Nav from "./view/header/Nav";
 import Checkout from "./view/checkout/Checkout";
+import Restaurants from "./view/restaurants/Restaurants";
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
         <FoodDetail />
       <OrderFinal /> */}
         {/* <Login /> */}
-        <Checkout />
+        {/* <Checkout /> */}
+        <Restaurants />
       </main>
       <Footer />
     </>

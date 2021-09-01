@@ -55,6 +55,12 @@
 }
 .popular__item {
   width: $width-popular-item;
+  &-restaurant__item {
+    margin-right: 10px;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
   &:not(:last-child) {
     margin-right: 10px;
   }

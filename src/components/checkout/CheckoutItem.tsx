@@ -9,15 +9,13 @@ const CheckoutItem = () => {
     <div className="checkoutItem">
       <figure className="checkoutItem__shape">
         <img src={photo1} alt="" className="checkoutItem__shape-photo" />
-        <figcaption className="checkoutItem__shape-caption">
-          ten san phâm
-        </figcaption>
       </figure>
-      <div className="checkoutItem__price"></div>
+      <h3 className="checkoutItem__name"> Thai soup</h3>
+      <div className="checkoutItem__price">$5</div>
       <div className="checkoutItem__quantity">
-        <RemoveIcon className="checkoutItem__quatity-icon" />
+        <RemoveIcon className="checkoutItem__quantity-icon" />
         <span>1</span>
-        <AddIcon className="checkoutItem__quatity-icon" />
+        <AddIcon className="checkoutItem__quantity-icon" />
       </div>
       <div className="checkoutItem__remove">
         <DeleteIcon className="checkoutItem__remove-icon" />

@@ -1,17 +1,85 @@
 .checkout {
+  display: flex;
+  justify-content: center;
+  margin: 100px;
   --width: calc(#{$width-popular-content});
-  width: var(--width);
+  // width: var(--width);
+  &__content {
+    display: flex;
+    width: var(--width);
+    justify-content: space-between;
+  }
   &__product {
     width: calc(var(--width) / 2);
+  }
+
+  &__action {
+    &-form {
+      background-color: #ffefd7;
+      padding: 10px 20px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+    }
+    &-form-title {
+      display: flex;
+    }
+    &-form-voucher {
+      margin: 20px 0;
+      &-input {
+        padding: 5px 10px;
+        margin-right: 20px;
+        &::placeholder {
+          text-transform: uppercase;
+        }
+      }
+      &-btn {
+        padding: 10px 20px;
+        background: rgba(255, 174, 0, 0.29);
+        border: none;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    &-form-voucher-input {
+    }
+    &-from-voucher-btn {
+    }
+    &-form-total {
+      display: flex;
+      justify-content: space-between;
+      &-item {
+        font-size: 20px;
+        span {
+          color: $color-warning;
+        }
+      }
+      &-price {
+        color: rgb(43, 202, 57);
+        font-size: 22px;
+        font-weight: 600;
+      }
+    }
+    &-form-total-item {
+    }
+    &-form-total-price {
+    }
   }
 }
 .checkoutItem {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 
   padding: 10px 20px;
   background: #ffefd7;
+  border-radius: 8px;
+  filter: drop-shadow(0px 5px 10px rgba(255, 174, 0, 0.26))
+    drop-shadow(0px 5px 10px rgba(255, 174, 0, 0.29));
+
+  &:not(:last-child) {
+    margin-bottom: 50px;
+  }
   &__shape {
     width: calc(var(--width) / 10);
     position: relative;
@@ -25,9 +93,29 @@
     }
   }
   &__price {
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-light;
   }
   &__quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &-icon {
+      background-color: $color-white;
+    }
+    span {
+      margin: 0 5px;
+      align-content: stretch;
+    }
+  }
+  &__remove {
+    &-icon {
+      font-size: 18px !important;
+      &:hover {
+        font-size: 18px;
+        color: rgb(199, 58, 58);
+      }
     }
   }
 }
