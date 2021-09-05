@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import img from "../../style/img/Image_header.png";
 import ViewButton from "../../components/ViewButton";
+import header__img__shadow from "../../style/img/shadow-bg-header.png";
 const Header: React.FC = (props) => {
   return (
     <section className="header">
@@ -21,7 +22,7 @@ const Header: React.FC = (props) => {
                 <MotorcycleIcon className="delivery-icon" />
                 <span>Delivery</span>
               </div>
-              <div className="pickup">
+              <div className="pickup delivery-active">
                 <LockIcon className="delivery-icon" />
                 <span>Pickup</span>
               </div>
@@ -41,6 +42,7 @@ const Header: React.FC = (props) => {
         </div>
         <div className="header__img">
           <img src={img} alt="" className="img" />
+          <img src={header__img__shadow} alt="" className="img img-shadow" />
         </div>
       </div>
     </section>

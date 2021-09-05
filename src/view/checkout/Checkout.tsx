@@ -6,14 +6,14 @@ import voucher from "../../style/img/voucher.png";
 const Checkout = () => {
   const myRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const [fixedForm, setFixedForm] = useState<boolean>(false);
+  const [fixedForm, setFixedForm] = useState<string>("");
   const handleScroll = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
     if (position >= 162 && position < 560) {
-      setFixedForm(true);
+      setFixedForm("checkout__action-fixed");
     } else {
-      setFixedForm(false);
+      setFixedForm("");
     }
     console.log(position);
   };
@@ -34,10 +34,11 @@ const Checkout = () => {
           <CheckoutItem />
         </div>
         <div
-          className="checkout__action"
-          style={
-            fixedForm ? { position: "fixed", top: "0", right: "240px" } : {}
-          }
+          // className="checkout__action"
+          className={`checkout__action ${fixedForm}`}
+          // style={
+          //   fixedForm ? { position: "fixed", top: "0", right: "240px" } : {}
+          // }
         >
           <div className="checkout__action-form" ref={myRef}>
             <div className="checkout__action-form-title">

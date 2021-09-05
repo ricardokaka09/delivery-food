@@ -8,3 +8,16 @@
     transform: translate();
   }
 }
+
+@keyframes hiddenSlide {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+    transform: translateX(-100px);
+  }
+  100% {
+    display: none;
+  }
+}

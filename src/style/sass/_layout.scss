@@ -6,6 +6,34 @@
   align-items: center;
 
   margin-bottom: 80px;
+  --width: 1200px;
+  .restaurantItem {
+    width: calc((var(--width) / 4) - 20px);
+  }
+  @include respond(laptop) {
+    --width: 1000px;
+    .restaurantItem {
+      width: calc((var(--width) / 3) - 10px);
+    }
+  }
+  @include respond(tab-port) {
+    --width: 700px;
+    .restaurantItem {
+      width: calc((var(--width) / 2) - 10px);
+    }
+    &__body {
+      justify-content: space-between;
+    }
+  }
+  @include respond(phone) {
+    --width: 425px;
+    .restaurantItem {
+      width: calc((var(--width)) - 50px);
+    }
+    &__body {
+      justify-content: center;
+    }
+  }
 
   &__title {
     font-weight: bold;
@@ -18,7 +46,7 @@
     margin-bottom: 50px;
   }
   &__body {
-    width: $width-popular-content;
+    width: var(--width);
     display: flex;
     flex-wrap: wrap;
   }
@@ -58,16 +86,30 @@
   flex-direction: column;
   background: #fefaf1;
   padding-bottom: 50px;
+
+  --width: 1200px;
+  @include respond(laptop) {
+    --width: 1000px;
+  }
+  @include respond(tab-port) {
+    --width: 700px;
+  }
+  @include respond(phone) {
+    --width: 425px;
+    &__bottom {
+      flex-wrap: wrap;
+    }
+  }
   &__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1200px;
+    width: var(--width);
     padding: 50px 0;
 
     &-title {
       font-weight: bold;
-      font-size: 32px;
+      font-size: 3.2rem;
       line-height: 112%;
 
       text-align: center;
@@ -120,7 +162,7 @@
       align-items: center;
 
       font-weight: bold;
-      font-size: 14px;
+      font-size: 1.4rem;
       line-height: 100%;
 
       text-align: center;
@@ -132,7 +174,7 @@
   &__bottom {
     display: flex;
     justify-content: center;
-    width: $width-popular-content;
+    width: var(--width);
   }
 }
 
@@ -145,6 +187,44 @@
   padding: 100px 100px 100px 100px;
   display: flex;
   justify-content: center;
+  &__main {
+    padding: 40px;
+  }
+
+  @include respond(laptop) {
+    --width: 1000px;
+    padding: 50px;
+    &__main {
+      padding: 10px;
+    }
+  }
+  @include respond(tab-port) {
+    --width: 700px;
+    padding: 20px;
+    &__main {
+      padding: 0;
+      .featureItem__title {
+        width: 110px;
+        font-size: 2.8rem;
+      }
+    }
+  }
+  @include respond(phone) {
+    --width: 425px;
+    padding: 20px;
+    &__main {
+      padding: 0;
+      flex-direction: column;
+      .featureItem {
+        &:not(:last-child) {
+          margin: 0;
+        }
+        &:not(:last-child) &__title {
+          border-right: none;
+        }
+      }
+    }
+  }
 
   &__main {
     display: flex;
@@ -156,8 +236,6 @@
 
     align-items: center;
     justify-content: center;
-
-    padding: 40px;
   }
 }
 
@@ -239,7 +317,7 @@
 
       h2 {
         font-weight: bold;
-        font-size: 52px;
+        font-size: 5.2rem;
         line-height: 106%;
         width: 350px;
         background: linear-gradient(92.84deg, #ffb800 -47.72%, #ff8a00 136.81%);
@@ -253,12 +331,62 @@
         color: transparent;
         background-clip: text;
         -webkit-background-clip: text;
+        font-size: 1.2rem;
       }
     }
     &-button {
       display: flex;
-      align-items: center;
-      // justify-content: space-between;
+      justify-content: space-around;
+      width: 100%;
+    }
+  }
+  @include respond(laptop) {
+    --width: 1000px;
+    &__phone {
+      right: 100px;
+      &-photo {
+        width: 230px;
+      }
+    }
+    &__heading {
+      left: 274px;
+      width: 340px;
+
+      &-info {
+      }
+      &-button {
+        width: 100%;
+        justify-content: flex-start;
+        .button {
+          &:not(:last-child) {
+            margin-right: 50px;
+          }
+        }
+      }
+    }
+  }
+  @include respond(tab-port) {
+    --width: 700px;
+    &__phone {
+      right: 85px;
+    }
+  }
+  @include respond(phone) {
+    &__phone {
+      display: none;
+    }
+    &__heading {
+      position: static;
+      transform: translate(0);
+      &-info {
+        text-align: center;
+      }
+      &-button {
+        justify-content: center;
+      }
+    }
+    &__content {
+      top: 0%;
     }
   }
 }
@@ -269,6 +397,19 @@
 .foodDetail {
   padding: 50px 0;
   margin: 0 200px;
+  @include respond(laptop) {
+    margin: 0 100px;
+  }
+  @include respond(laptop-M) {
+    margin: 0 60px;
+  }
+  @include respond(tab-port) {
+    margin: 0 50px;
+  }
+  @include respond(tab-port) {
+    padding: 10px 0;
+    margin: 0 10px;
+  }
   // background: #e5e5e5;
 }
 
@@ -295,7 +436,7 @@
     margin-bottom: 50px;
     width: 600px;
     font-weight: 900;
-    font-size: 48px;
+    font-size: 4.8rem;
     line-height: 97.5%;
     /* or 56px */
 
@@ -304,6 +445,27 @@
     /* Theme/White */
 
     color: #ffffff;
+  }
+  @include respond(laptop) {
+    height: 250px;
+    &__title {
+      margin-bottom: 30px;
+    }
+  }
+  @include respond(laptop-M) {
+    height: 250px;
+
+    &__title {
+      width: 500px;
+      margin-bottom: 20px;
+    }
+  }
+  @include respond(tab-port) {
+    height: 200px;
+    &__title {
+      width: 400px;
+      margin-bottom: 10px;
+    }
   }
 }
 
@@ -317,7 +479,7 @@
     padding-top: 100px;
     h3 {
       color: #fff;
-      font-size: 18px;
+      font-size: 1.8rem;
       font-weight: 700;
       margin-bottom: 40px;
     }
@@ -336,7 +498,7 @@
       }
       a {
         color: #f5f5f5;
-        font-size: 14px;
+        font-size: 1.4rem;
         font-weight: 400;
         // margin: 8px;
         text-decoration: none;
@@ -345,24 +507,24 @@
   }
 
   &__middle {
+    --width: $width-popular-content;
     padding: 40px 0;
     display: flex;
-    // justify-content: ;
+    justify-content: space-between;
     border-bottom: 2px solid #424242;
     .footer__menu {
       display: flex;
 
-      width: calc(#{$width-popular-content} / 2);
-      // justify-content: space-between;
+      width: calc(var(--width) / 2);
       &-company {
         &:not(:last-child) {
           margin-right: 10px;
         }
-        width: calc((#{$width-popular-content} / 2) / 3 - 20px);
+        width: calc((var(--width) / 2) / 3 - 20px);
         &-title {
           margin-bottom: 25px;
           font-weight: bold;
-          font-size: 18px;
+          font-size: 1.8rem;
           line-height: 120%;
           /* or 26px */
 
@@ -371,20 +533,13 @@
       }
     }
     .footer__subcription {
-      flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      margin-left: 250px;
       &-title {
-        font-size: 14px;
+        font-size: 1.4rem;
         line-height: 120%;
-        /* identical to box height, or 22px */
-
         text-transform: uppercase;
-
         color: #f5f5f5;
-
         opacity: 0.6;
       }
       &-icon {
@@ -420,7 +575,7 @@
       }
       &-detail {
         font-weight: bold;
-        font-size: 14px;
+        font-size: 1.4rem;
         line-height: 140%;
         /* or 25px */
 
@@ -436,20 +591,61 @@
 
     .legal {
       color: $color-gray-light-2;
-      font-size: 11px;
+      font-size: 1.1rem;
       span {
         font-weight: 800;
       }
     }
     .madeby {
       color: $color-gray-light-2;
-      font-size: 11px;
+      font-size: 1.1rem;
 
       span {
-        font-size: 15px;
+        font-size: 1.5rem;
         font-weight: 800;
         color: $color-light;
       }
+    }
+  }
+  @include respond(laptop) {
+    padding: 0 100px 30px 100px;
+    &__middle {
+      --width: 1000px;
+    }
+    &__top {
+      padding-top: 60px;
+    }
+  }
+  @include respond(laptop-M) {
+    padding: 0 80px 30px 80px;
+    &__middle {
+      --width: 900px;
+    }
+    &__top {
+      padding-top: 40px;
+    }
+  }
+  @include respond(tab-port) {
+    padding: 0 50px 30px 50px;
+    &__middle {
+      --width: 700px;
+    }
+  }
+  @include respond(phone) {
+    padding: 0 20px 10px 20px;
+    &__middle {
+      --width: 425px;
+
+      .footer__menu {
+        width: calc(var(--width));
+        &-company {
+          width: calc((var(--width) / 3) - 10px);
+        }
+      }
+      flex-direction: column;
+    }
+    &__menu {
+      margin-bottom: 20px;
     }
   }
 }

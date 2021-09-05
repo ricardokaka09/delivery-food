@@ -1,8 +1,11 @@
 .login {
-  --width-form: calc((#{$width-popular-content} / 3));
+  --width-form: 400px;
   background-image: url("../img/login_bg.png");
   position: relative;
   height: 600px;
+  @include respond(phone) {
+    --width-form: 350px;
+  }
 
   &__form {
     @include absCenter;
@@ -20,7 +23,7 @@
       position: relative;
       width: 100%;
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: 1.6rem;
       border: none;
       border-radius: 5px;
       background-color: $color-gray-light-2;
@@ -76,6 +79,17 @@
       justify-content: space-between;
 
       margin: 20px 0;
+      @include respond(phone) {
+        align-items: center;
+        flex-direction: column;
+
+        img {
+          width: 60%;
+          &:not(:last-child) {
+            margin-bottom: 8px;
+          }
+        }
+      }
     }
     &-register {
       display: flex;

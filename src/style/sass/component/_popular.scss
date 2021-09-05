@@ -3,6 +3,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  --width: 1200px;
+  @include respond(laptop) {
+    --width: 1000px;
+  }
+  @include respond(tab-port) {
+    --width: 700px;
+  }
 
   padding: 100px;
   &__title {
@@ -50,11 +57,16 @@
   &__content {
     display: flex;
     margin: 0 20px;
-    width: $width-popular-content;
+    width: var(--width);
   }
 }
 .popular__item {
-  width: $width-popular-item;
+  width: calc((var(--width) / 5) - 10px);
+  transition: opacity 0.5s ease;
+  -webkit-transition: opacity 0.6s ease;
+  -moz-transition: opacity 0.6s ease;
+  -o-transition: opacity 0.6s ease;
+  // transform: translateX(-$width-popular-item);
   &-restaurant__item {
     margin-right: 10px;
     &:not(:last-child) {
@@ -64,9 +76,24 @@
   &:not(:last-child) {
     margin-right: 10px;
   }
+  /* SLIDE */
+  &-active {
+    transition: opacity 0.5s ease;
+    -webkit-transition: opacity 0.6s ease;
+    -moz-transition: opacity 0.6s ease;
+    -o-transition: opacity 0.6s ease;
+  }
+  &-hidden {
+    transition: opacity 0.6s ease;
+    opacity: 0;
+    display: none;
+    animation: hiddenSlide;
+  }
+
+  /* SLIDE END */
   &-img {
     width: 100%;
-    height: calc((1100px / 5) - 10px + 10px);
+    height: calc((var(--width) / 5) - 10px + 10px);
     display: block;
     border-radius: 10px;
   }
@@ -75,13 +102,13 @@
   }
   &-name {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 120%;
 
     color: #424242;
   }
   &-marker {
-    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 120%;
 
     color: #ffb30e;
@@ -91,17 +118,12 @@
     // justify-content: center;
 
     svg {
-      width: 18px;
+      width: 1.8rem;
     }
   }
   &-price {
     font-weight: bold;
-    font-size: 18px;
-    // line-height: 120%;
-    /* or 26px */
-
-    /* Theme/Gray 900 */
-
+    font-size: 1.8rem;
     color: #212121;
   }
   &-button {

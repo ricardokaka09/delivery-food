@@ -141,4 +141,25 @@
       margin-right: 4px;
     }
   }
+  @include respond(laptop) {
+    font-size: 1.4rem;
+    &__btn-orderDetail {
+      margin-top: 20px;
+    }
+  }
+  @include respond(laptop-M) {
+    font-size: 1rem;
+    &__btn-orderDetail {
+      margin-top: 10px;
+    }
+    &__find {
+      padding: 5px;
+    }
+  }
+  @include respond(tab-port) {
+    font-size: 1rem;
+    &__btn-orderDetail {
+      margin-top: 20px;
+    }
+  }
 }

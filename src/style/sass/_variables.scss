@@ -16,6 +16,7 @@ $color-yellow-dark: #f0d090;
 
 // WIDTH
 $width-popular-content: 1200px;
+
 $width-popular-item: calc((1200px / 5) - 10px);
 $width-restaurant-item: calc((1200px / 4) - 10px);
 $width-searchFood-item: calc((#{$width-popular-content} / 6) - 20px);

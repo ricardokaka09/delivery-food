@@ -10,22 +10,48 @@
     width: 100%;
   }
   &__highlight {
-    --width: $width-popular-content;
+    --width: 1200px;
+
     display: flex;
     justify-content: space-between;
     padding: 50px 0;
-    width: $width-popular-content;
+    width: var(--width);
 
     &__shape {
       width: calc((var(--width) / 2) - 100px);
-      height: calc(#{$width-popular-content} / 2 - 250px);
+      height: calc((var(--width) / 2) - 250px);
       box-shadow: $box-shadow-1;
       border-radius: 10px;
       img {
-        width: calc(#{$width-popular-content} / 2 - 100px);
+        width: calc((var(--width) / 2) - 100px);
         height: 100%;
         display: block;
         border-radius: 10px;
+      }
+    }
+    @include respond(laptop) {
+      --width: 1000px;
+      justify-content: space-around;
+    }
+    @include respond(tab-port) {
+      --width: 800px;
+      &__shape {
+        height: auto;
+        img {
+          height: auto;
+        }
+      }
+    }
+    @include respond(phone) {
+      --width: 425px;
+      flex-direction: column;
+      align-items: center;
+      &__shape {
+        width: calc(var(--width) - 100px);
+        margin-bottom: 20px;
+        img {
+          width: calc(var(--width) - 100px);
+        }
       }
     }
   }
@@ -46,7 +72,7 @@
         justify-content: center;
         align-items: center;
         svg {
-          font-size: 14px;
+          font-size: 1.4rem;
           margin: 0px 10px;
         }
       }
@@ -54,7 +80,7 @@
     &-list-option {
       a {
         text-decoration: none;
-        font-size: 16px;
+        font-size: 1.6rem;
         color: rgb(47, 47, 224);
       }
     }
@@ -89,7 +115,7 @@
       margin-left: 10px;
       p {
         color: #000000;
-        font-size: 14px;
+        font-size: 1.4rem;
         font-weight: 400;
       }
     }
@@ -104,12 +130,16 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    @include respond(phone) {
+      padding: 20px 0;
+    }
   }
   &__detail {
-    width: $width-popular-content;
+    --width: 1200px;
     padding: 50px 0;
     display: flex;
     justify-content: space-between;
+    width: var(--width);
     &-category {
       background: #fefdfd;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -121,7 +151,7 @@
         text-align: center;
         color: $color-white;
         font-weight: 800;
-        font-size: 18px;
+        font-size: 1.8rem;
         background: #ffae00;
         border-radius: 10px 10px 0px 0px;
         padding: 10px 10px;
@@ -136,7 +166,7 @@
         margin-bottom: 20px;
         padding: 5px 10px;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 1.6rem;
         color: #a79e9e;
         &-active {
           background: #7a7676;
@@ -148,8 +178,30 @@
     &-food {
       display: flex;
       justify-content: center;
-      width: calc((#{$width-popular-content} / 5) * 3);
+      width: calc((var(--width) / 5) * 3);
       flex-wrap: wrap;
+    }
+    @include respond(tab-port) {
+      --width: 900px;
+      justify-content: space-around;
+    }
+    @include respond(phone) {
+      --width: 400px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: calc(var(--width));
+      &-category {
+        width: 80%;
+        margin-bottom: 20px;
+      }
+      .popular__item {
+        width: calc((var(--width)) - 100px);
+        &-img {
+          width: calc((var(--width)) - 100px);
+          height: auto;
+        }
+      }
     }
   }
 }

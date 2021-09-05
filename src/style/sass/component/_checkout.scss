@@ -4,24 +4,73 @@
   margin: 100px;
   --width: calc(#{$width-popular-content});
   // width: var(--width);
+  @include respond(laptop) {
+    --width: 1000px;
+    margin: 40px;
+  }
+  @include respond(laptop-M) {
+    --width: 1000px;
+    margin: 40px;
+  }
+  @include respond(tab-port) {
+    --width: 800px;
+    margin: 40px;
+  }
+  @include respond(phone) {
+    --width: 360px;
+  }
   &__content {
     display: flex;
     width: var(--width);
     justify-content: space-between;
+    @include respond(phone) {
+      flex-direction: column;
+    }
   }
   &__product {
     width: calc(var(--width) / 2);
+    @include respond(phone) {
+      margin-bottom: 40px;
+      width: var(--width);
+    }
   }
 
   &__action {
+    &-fixed {
+      position: fixed;
+      top: 0;
+      right: 240px;
+      @include respond(laptop) {
+        right: 150px;
+      }
+      @include respond(laptop-M) {
+        right: 100px;
+      }
+      @include respond(tab-port) {
+        right: 20px;
+      }
+      @include respond(phone) {
+        position: static;
+      }
+    }
     &-form {
       background-color: #ffefd7;
       padding: 10px 20px;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-radius: 5px;
+      @include respond(tab-port) {
+        padding: 10px;
+      }
     }
     &-form-title {
       display: flex;
+      align-items: center;
+      p {
+        font-size: 1.6rem;
+      }
+      @include respond(tab-port) {
+        padding: 10px;
+      }
     }
     &-form-voucher {
       margin: 20px 0;
@@ -40,6 +89,18 @@
           outline: none;
         }
       }
+      @include respond(tab-port) {
+        margin: 10px 0;
+        display: flex;
+        &-input {
+          padding: 5px;
+          margin-right: 5px;
+          flex: 1;
+        }
+        &-btn {
+          padding: 10px;
+        }
+      }
     }
     &-form-voucher-input {
     }
@@ -49,14 +110,14 @@
       display: flex;
       justify-content: space-between;
       &-item {
-        font-size: 20px;
+        font-size: 2rem;
         span {
           color: $color-warning;
         }
       }
       &-price {
         color: rgb(43, 202, 57);
-        font-size: 22px;
+        font-size: 2.2rem;
         font-weight: 600;
       }
     }
@@ -91,9 +152,12 @@
       position: absolute;
       right: 0;
     }
+    @include respond(phone) {
+      width: calc((var(--width) / 5));
+    }
   }
   &__price {
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 600;
     color: $color-light;
   }
@@ -111,7 +175,7 @@
   }
   &__remove {
     &-icon {
-      font-size: 18px !important;
+      font-size: 1.8rem !important;
       &:hover {
         font-size: 18px;
         color: rgb(199, 58, 58);

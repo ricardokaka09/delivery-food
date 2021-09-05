@@ -1,5 +1,6 @@
 import React from "react";
 import "./style/sass/Main.scss";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Download from "./view/main/Download";
 import Features from "./view/main/Features";
 import FlashDeal from "./view/main/FlashDeal";
@@ -18,25 +19,37 @@ import Restaurants from "./view/restaurants/Restaurants";
 
 function App() {
   return (
-    <>
-      <Nav />
-      <main>
-        {/* <Header />
-        <FlashDeal />
-        <Working />
-        <Popular />
-        <Restaurant />
-        <SearchFood />
-        <Features />
-        <Download />
-        <FoodDetail />
-      <OrderFinal /> */}
-        {/* <Login /> */}
-        {/* <Checkout /> */}
-        <Restaurants />
-      </main>
-      <Footer />
-    </>
+    <Router>
+      <div className="container">
+        <Nav />
+        <main>
+          <Switch>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/checkout">
+              <Checkout />
+            </Route>
+            <Route path="/restaurants">
+              <Restaurants />
+            </Route>
+            <Route path="/">
+              <Header />
+              <FlashDeal />
+              <Working />
+              <Popular />
+              <Restaurant />
+              <SearchFood />
+              <Features />
+              <Download />
+              <FoodDetail />
+              <OrderFinal />
+            </Route>
+          </Switch>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

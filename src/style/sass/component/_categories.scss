@@ -1,23 +1,25 @@
 .category {
+  --width: 1200px;
+  width: calc((var(--width) / 6) - 20px);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: $width-searchFood-item;
 
   &:not(:last-child) {
     margin-right: 20px;
   }
   &__title {
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 600;
     color: $color-black-title;
     text-align: center;
     margin-top: 30px;
   }
   &__shape {
-    width: $width-searchFood-item; // 8 * 16
-    height: $width-searchFood-item;
+    width: calc((var(--width) / 6) - 20px); // 8 * 16
+    height: calc((var(--width) / 6) - 20px);
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
     cursor: pointer;
@@ -51,5 +53,29 @@
     backface-visibility: hidden;
     text-align: center;
     opacity: 0;
+  }
+  @include respond(laptop) {
+    --width: 1000px;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+  @include respond(tab-port) {
+    --width: 700px;
+    &:not(:last-child) {
+      margin-right: 2px;
+    }
+  }
+  @include respond(phone) {
+    --width: 425px;
+    width: calc((var(--width) / 3) - 10px);
+    // flex-wrap: wrap;
+    margin: 0;
+    margin-bottom: 5px;
+    &__shape {
+      width: calc((var(--width) / 3) - 10px); // 8 * 16
+      height: calc((var(--width) / 3) - 10px);
+    }
   }
 }

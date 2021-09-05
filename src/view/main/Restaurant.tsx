@@ -2,6 +2,7 @@ import React from "react";
 import RestaurantItem from "../../components/featureRes/RestaurantItem";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ViewButton from "../../components/ViewButton";
+import { Link } from "react-router-dom";
 
 const Restaurant = () => {
   return (
@@ -17,10 +18,12 @@ const Restaurant = () => {
         <RestaurantItem />
         <RestaurantItem />
       </div>
-      <ViewButton
-        type="viewButton__btn viewButton__btn-restaurant"
-        title="View All"
-      />
+      <Link to="/restaurants">
+        <ViewButton
+          type="viewButton__btn viewButton__btn-restaurant"
+          title="View All"
+        />
+      </Link>
     </section>
   );
 };
