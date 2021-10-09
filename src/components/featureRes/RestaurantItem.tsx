@@ -1,15 +1,20 @@
 import { Star, StarOutline } from "@material-ui/icons";
 import React from "react";
-import Feature1 from "../../style/img/Featured-1.png";
-import ResLogo1 from "../../style/img/Res-logo-1.png";
 import AlarmOnIcon from "@material-ui/icons/AlarmOn";
 import discountIcon from "../../style/img/discountIcon.png";
 
-const RestaurantItem: React.FC = () => {
+interface Data {
+  src: string;
+}
+const RestaurantItem: React.FC<{ img: string; rate: string; logo: string }> = ({
+  img,
+  rate,
+  logo,
+}) => {
   return (
     <div className="restaurantItem">
       <div className="res__img">
-        <img src={Feature1} alt="" />
+        <img src={img} alt="" />
         <div className="res__bagde">
           <div className="res__bagde__discount">
             <img
@@ -26,11 +31,11 @@ const RestaurantItem: React.FC = () => {
         </div>
       </div>
       <div className="res__logo">
-        <img src={ResLogo1} alt="" className="res__logo-img" />
+        <img src={logo} alt="" className="res__logo-img" />
         <div className="res__logo-info">
           <h4>Foodworld</h4>
           <div className="res__logo-rate">
-            <Star className="res__logo-icon" /> <span>40</span>
+            <Star className="res__logo-icon" /> <span>{rate}</span>
           </div>
         </div>
       </div>

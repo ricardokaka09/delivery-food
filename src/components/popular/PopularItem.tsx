@@ -11,6 +11,7 @@ import {
   Ref,
   RefObject,
 } from "hoist-non-react-statics/node_modules/@types/react";
+import { Link } from "react-router-dom";
 
 const PopularItem: React.FC<{
   type: string;
@@ -54,7 +55,9 @@ const PopularItem: React.FC<{
         </p>
         <p className="popular__item-price">$3.88</p>
       </div>
-      <button className="popular__item-button">order now</button>
+      <Link to="/checkout">
+        <button className="popular__item-button">order now</button>
+      </Link>
     </div>
   );
 };
